@@ -1,6 +1,6 @@
 // llave de cifrado
 let cifrado = ["ai","enter","imes","ober","ufat"]
-let cifrarFrase = "roket es un perro loco";
+let cifrarFrase = prompt('Ingrese la frase para cifrar: ');
 let fraseResultado = [];
 // convertir el string en un arreglo
 let arrCifrarFrase = Object.assign([], cifrarFrase);
@@ -27,6 +27,6 @@ for (contador = 0, n = cifrarFrase.length; contador < n; ++contador) {
     }
 }
 // convertir el arreglo fraseResultdo, en el string cifrado
-console.log(fraseResultado.join(''));
+alert(`La frase cifrada es: ${fraseResultado.join('')}`);
 
 
