@@ -1,10 +1,42 @@
 // llave de cifrado
 let cifrado = ["ai","enter","imes","ober","ufat"];
 let deCifrado = ["a","e","i","o","u"];
-let cifrarFrase = prompt('Ingrese la frase para cifrar: ');
-let decifrarFrase = prompt('Ingrese la frase para decifrar: ');
+//selecciona el boton cuando da click
+let botonCifrar = document.querySelector("#btn-cifrar");
+let botonDecifrar = document.querySelector("#btn-decifrar");
+let botonCopiar = document.querySelector("#btn-copy");
+// Evento click
+botonCifrar.addEventListener("click", function(event){
 
-//"fenterlimescimesdaidenters poberr enternfrenterntair enterstenter dentersaifimesober y haibenterrlober cobernclufatimesdober cobern enterximestober!";
+    //desabilita lo que  viene  por  defecto en este caso la accion del  boton
+    event.preventDefault(); 
+
+    // trae el formulario
+    let form = document.querySelector('.formulario');  
+
+    // trae  el mensaje del formulario
+    let cifrarFrase = form.texto.value;
+ 
+    //  let inputnputEncriptado= document.querySelector('.input-2'); 
+    document.querySelector('.input-2').value=decifrar(cifrado,deCifrado,cifrarFrase);
+})
+
+botonDecifrar.addEventListener("click", function(event){
+
+    //desabilita lo que  viene  por  defecto en este caso la accion del  boton
+    event.preventDefault(); 
+
+    // trae el formulario
+    let form = document.querySelector('.formulario');  
+
+    // trae  el mensaje del formulario
+    let cifrarFrase = form.texto.value;
+ 
+    //  let inputnputEncriptado= document.querySelector('.input-2'); 
+    document.querySelector('.input-2').value=decifrar(deCifrado,cifrado,cifrarFrase);
+})
+
+botonCopiar.addEventListener("click", copy);
 
 function decifrar(pke, pki, frase){
     let fraseResultado = [];
@@ -37,8 +69,23 @@ function decifrar(pke, pki, frase){
                 contador = contador + 1;
             }
         }
-        return fraseResultado.join('');
+        return(fraseResultado.join(''));
+        
 }
 
-alert(decifrar(cifrado,deCifrado,cifrarFrase));
-alert(decifrar(deCifrado,cifrado,decifrarFrase));
+function copy() {
+    let copyText = document.querySelector(".input-2");
+    copyText.select();
+    document.execCommand("copy");
+}
+
+    
+
+
+
+
+
+
+
+
+
