@@ -4,8 +4,9 @@ Aplicación que cifra textos, para intercambiar mensajes secretos con otras pers
 
 Las "llaves" de cifrado que utilizaremos son las siguientes:
 
-| Cifrado |ai|enter|imes|ober|ufat|
-||Descifrado |a|e|i|o|u| 
+| Cifrado    |ai|enter|imes|ober|ufat|
+|------------|--|-----|----|----|----|
+| Descifrado |a |e    |i   |o   |u   | 
 
 ## :hammer:Funcionalidades del proyecto
 
