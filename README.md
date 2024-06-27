@@ -1,5 +1,5 @@
-<em>#Encriptador de vocales sin acento</em>
-Descripción
+<em>#Encriptador de vocales sin acento#</em>
+* Descripción
 Aplicación que encripta textos, para intercambiar mensajes secretos con otras personas que sepan el secreto de la encriptación utilizada.
 
 Las "llaves" de encriptación que utilizaremos son las siguientes:
