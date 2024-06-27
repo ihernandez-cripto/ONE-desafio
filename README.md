@@ -1,4 +1,4 @@
-<em> # Encriptador de vocales sin acento </em>#
+# Encriptador de vocales sin acento 
 * _Descripción_
 Aplicación que cifra textos, para intercambiar mensajes secretos con otras personas que sepan el secreto del cifrado utilizado.
 
