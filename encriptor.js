@@ -5,36 +5,28 @@ let deCifrado = ["a","e","i","o","u"];
 let botonCifrar = document.querySelector("#btn-cifrar");
 let botonDecifrar = document.querySelector("#btn-decifrar");
 let botonCopiar = document.querySelector("#btn-copy");
-// Evento click
-botonCifrar.addEventListener("click", function(event){
+let nombreBoton;
 
-    //desabilita lo que  viene  por  defecto en este caso la accion del  boton
-    event.preventDefault(); 
+resultado(botonCifrar,cifrado,deCifrado);
+resultado(botonDecifrar,deCifrado,cifrado);
 
-    // trae el formulario
-    let form = document.querySelector('.formulario');  
+function resultado(nombreBoton,cifrado,deCifrado){
+    // Evento click
+    nombreBoton.addEventListener("click", function(event){
 
-    // trae  el mensaje del formulario
-    let cifrarFrase = form.texto.value;
- 
-    //  let inputnputEncriptado= document.querySelector('.input-2'); 
-    document.querySelector('.input-2').value=decifrar(cifrado,deCifrado,cifrarFrase);
-})
-
-botonDecifrar.addEventListener("click", function(event){
-
-    //desabilita lo que  viene  por  defecto en este caso la accion del  boton
-    event.preventDefault(); 
-
-    // trae el formulario
-    let form = document.querySelector('.formulario');  
-
-    // trae  el mensaje del formulario
-    let cifrarFrase = form.texto.value;
- 
-    //  let inputnputEncriptado= document.querySelector('.input-2'); 
-    document.querySelector('.input-2').value=decifrar(deCifrado,cifrado,cifrarFrase);
-})
+        //desabilita lo que  viene  por  defecto en este caso la accion del  boton
+        event.preventDefault(); 
+    
+        // trae el formulario
+        let form = document.querySelector('.formulario');  
+    
+        // trae  el mensaje del formulario
+        let cifrarFrase = form.texto.value;
+     
+        //  let inputnputEncriptado= document.querySelector('.input-2'); 
+        document.querySelector('.input-2').value=decifrar(cifrado,deCifrado,cifrarFrase);
+    })    
+}
 
 botonCopiar.addEventListener("click", copy);
 
@@ -42,6 +34,7 @@ function decifrar(pke, pki, frase){
     let fraseResultado = [];
     let contador = 0;
     let arrCifrarFrase = Object.assign([], frase);
+
 
         while (contador < frase.length) {
             if (arrCifrarFrase[contador] == "a"){
