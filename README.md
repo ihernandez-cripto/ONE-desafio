@@ -25,3 +25,11 @@ El resultado se muestra en la pantalla.
 * Extras:
 
 Un botón que copie el texto cifrado/descifrado para la sección de transferencia, o sea que la misma funcionalidad del ctrl+C o de la opción "copiar" del menú de las aplicaciones.
+
+# Interfaz del usuario
+![interfaz](https://github.com/ihernandez-cripto/ONE-desafio/assets/134563888/f80e383c-6bd7-4412-ae63-ea292e3cf6b1)
+* Al cifrar valida que el usuario introduzca texto para cifrar o decifrar.
+![texto-vacio](https://github.com/ihernandez-cripto/ONE-desafio/assets/134563888/dbc2cd99-b8b0-4af0-99e8-38b80e2093b5)
+* La funcionalidad copiar activa el botón de descifrado y desactiva el botón de cifrado. Haga clik en el botón copiar para activar el botón cifrar. 
+![boton_copiar](https://github.com/ihernandez-cripto/ONE-desafio/assets/134563888/70ea940b-242a-4415-82e8-ffab8c26ed49)
+ 
