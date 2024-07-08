@@ -1,41 +1,26 @@
 // llave de cifrado
 let cifrado = ["ai","enter","imes","ober","ufat"];
 let deCifrado = ["a","e","i","o","u"];
-//selecciona el boton cuando da click
-let botonCifrar = document.querySelector("#btn-cifrar");
-let botonDecifrar = document.querySelector("#btn-decifrar");
-let botonCopiar = document.querySelector("#btn-copy");
-let nombreBoton;
 
-resultado(botonCifrar,cifrado,deCifrado);
-resultado(botonDecifrar,deCifrado,cifrado);
+document.querySelector("#btn-copy").addEventListener("click", copy);
 
-function resultado(nombreBoton,cifrado,deCifrado){
-    // Evento click
-    nombreBoton.addEventListener("click", function(event){
-
-        //desabilita lo que  viene  por  defecto en este caso la accion del  boton
-        event.preventDefault(); 
-    
-        // trae el formulario
-        let form = document.querySelector('.formulario');  
-    
-        // trae  el mensaje del formulario
-        let cifrarFrase = form.texto.value;
-     
-        //  let inputnputEncriptado= document.querySelector('.input-2'); 
-        document.querySelector('.input-2').value=decifrar(cifrado,deCifrado,cifrarFrase);
-    })    
+// Función para traer el contenido de la página y 
+// publicar el resultado
+function resultado(cifrado,deCifrado){
+        let cifrarFrase = document.querySelector('.inCifrar').value
+        if(document.querySelector('#texto').value==''){
+            asignarTextoElemento('p2', 'Ningun mensaje fue encontrado');
+        }else{
+            asignarTextoElemento('p2', '');
+        }
+        document.querySelector('.inCopy').value=decifrar(cifrado,deCifrado,cifrarFrase);
 }
 
-botonCopiar.addEventListener("click", copy);
-
+// Función para cifrar y decifrar la frase
 function decifrar(pke, pki, frase){
     let fraseResultado = [];
     let contador = 0;
     let arrCifrarFrase = Object.assign([], frase);
-
-
         while (contador < frase.length) {
             if (arrCifrarFrase[contador] == "a"){
                 fraseResultado.push(pke[0]);
@@ -63,13 +48,27 @@ function decifrar(pke, pki, frase){
             }
         }
         return(fraseResultado.join(''));
-        
 }
 
+// Función para enviar contenido a los elementos HTML
+function asignarTextoElemento(elemento, texto) {
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
+// Función para copiar frase cifrada ctrl + v
 function copy() {
-    let copyText = document.querySelector(".input-2");
+    let copyText = document.querySelector(".inCopy");
     copyText.select();
     document.execCommand("copy");
+    if(document.getElementById('decifrar').disabled == true){
+       document.getElementById('decifrar').removeAttribute('disabled');
+       document.getElementById('cifrar').setAttribute('disabled','true');
+    }else{
+       document.getElementById('cifrar').removeAttribute('disabled');
+       document.getElementById('decifrar').setAttribute('disabled','true'); 
+    }
 }
 
     

@@ -1,48 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herramienta de Cifrado</title>
-  <link rel="stylesheet" href="style.css">
-  
-</head>        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Herramienta de Cifrado</title>
+</head>
 <body>
-  <header>
-  <h1 class="titulo">Ingrese el texto aqui</h1>
-  <img class='logo' src="./img/Logo.png" alt="alura">
-</header>
-<img  class='muñeco'src="./img/Muñeco.png" alt="muñeco">
-
-  <main class="main">
-    
-    <section class="form box">
-      
-      <form action="" class="formulario">
-
-        <textarea   class="texto" type="text"  name="texto" id="texto"  rows="4" cols="50"></textarea>
-        <input class="button" type="submit" value="Cifrar!" id="btn-cifrar">
-        <input class="button" type="submit" value="Descifrar!" id="btn-decifrar">   
-
-      </form>
-      
-    </section>
-    <section class="msg box">
-     
-      <textarea  class="texto input-2" type="text" id="msg" rows="4" cols="50"> </textarea>
-      <input class="button_copy" type="submit" value="Copiar" id="btn-copy">
-   
-
-    </section>
-    
-  </main>
-
-  <footer>
-
-    <p>© 2024, https://ihernandez-cripto.github.io/ONE-desafio/</p>
-   
-  </footer>
-  <script src="encriptor.js"></script>
-</body>
+    <div class="container">
+        <div class="container-logo">
+            <img class='logo' src="./img/Logo.png" alt="alura">
+        </div>
+        <div class="left-block"> 
+            <textarea   class="texto inCifrar" type="text"  id="texto"  rows="4" cols="50"></textarea>
+            <button onclick="resultado(cifrado,deCifrado);" class="container__boton" id="cifrar">Cifrar</button>
+            <button onclick="resultado(deCifrado,cifrado);" class="container__boton" id="decifrar" disabled>Descifrar</button>
+            <p>Ingrese el texto aqui</p>
+            <p1>Solo letras minúsculas y sin acentos</p1>
+        </div>        
+        <div class="right-block">
+            <textarea  class="texto inCopy" type="text" id="msg" rows="4" cols="50"> </textarea>
+            <input class="container__boton" type="submit" value="Copiar" id="btn-copy">
+            <p2></p2>    
+        </div>
+    </div>   
+    <footer>
+        <p>© 2024, Iván René Hernández López</p>
+    </footer>    
+    <script src="encriptor.js"></script>
+</body>    
 </html>
