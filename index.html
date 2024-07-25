@@ -17,20 +17,20 @@
             <img class='logo' src="./img/Logo.png" alt="alura">
         </div>
         <div class="left-block"> 
-            <textarea   class="texto inCifrar" type="text"  id="texto"  rows="4" cols="50"></textarea>
-            <button onclick="resultado(cifrado,deCifrado);" class="container__boton" id="cifrar">Cifrar</button>
-            <button onclick="resultado(deCifrado,cifrado);" class="container__boton" id="decifrar" disabled>Descifrar</button>
-            <p>Ingrese el texto aqui</p>
-            <p1>Solo letras minúsculas y sin acentos</p1>
-        </div>        
+            <textarea   class="inCifrar" type="text"  id="texto"  rows="4" cols="50" title="Ingresar Frase" required minlength="1"></textarea>
+            <p class="validar-letra">Solo letras minúsculas y sin acentos</p>
+            <button onclick="resultado(deCifrado,cifrado,deCifrado);" class="container_boton" id="cifrar">Cifrar</button>
+            <button onclick="resultado(deCifrado,deCifrado,cifrado);" class="container_boton" id="decifrar" disabled>Descifrar</button>
+            <p class="solicitar">Ingrese el texto aquí</p>
+        </div>
         <div class="right-block">
-            <textarea  class="texto inCopy" type="text" id="msg" rows="4" cols="50"> </textarea>
-            <input class="container__boton" type="submit" value="Copiar" id="btn-copy">
-            <p2></p2>    
+            <textarea  class="inCopy" type="text" id="msg" rows="4" cols="50" title="Frase Cifrada" readonly> </textarea>
+            <input class="container_boton" type="submit" value="Copiar" id="btn-copy" disabled>
+            <div><p2 class="validar-espacio"></p2></div>
         </div>
     </div>   
     <footer>
-        <p>© 2024, Iván René Hernández López</p>
+        <p class="footer">© 2024, Iván René Hernández López</p>
     </footer>    
     <script src="encriptor.js"></script>
 </body>    
