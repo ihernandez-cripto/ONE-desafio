@@ -4,50 +4,38 @@ let deCifrado = ["a","e","i","o","u"];
 
 document.querySelector("#btn-copy").addEventListener("click", copy);
 
-// Función para traer el contenido de la página y 
-// publicar el resultado
-function resultado(cifrado,deCifrado){
-        let cifrarFrase = document.querySelector('.inCifrar').value
-        if(document.querySelector('#texto').value==''){
-            asignarTextoElemento('p2', 'Ningun mensaje fue encontrado');
+
+// Función para validar el contenido ingresado por el usuario 
+function validarEntradaTexto(){
+        const valor = document.querySelector('.inCifrar').value.trim();
+        if(valor === "") {
+            asignarTextoElemento('p2', 'Ningún mensaje fue encontrado');
+            return;
         }else{
             asignarTextoElemento('p2', '');
         }
-        document.querySelector('.inCopy').value=decifrar(cifrado,deCifrado,cifrarFrase);
 }
 
 // Función para cifrar y decifrar la frase
-function decifrar(pke, pki, frase){
+function resultado(pk, pke, pki) {
+    let frase = document.querySelector('.inCifrar').value;
     let fraseResultado = [];
     let contador = 0;
     let arrCifrarFrase = Object.assign([], frase);
-        while (contador < frase.length) {
-            if (arrCifrarFrase[contador] == "a"){
-                fraseResultado.push(pke[0]);
-                contador = contador + String(pki[0]).length;
-            }
-            else if (arrCifrarFrase[contador] == "e"){
-                fraseResultado.push(pke[1]);
-                contador = contador + String(pki[1]).length;
-            }
-            else if (arrCifrarFrase[contador] == "i"){
-                fraseResultado.push(pke[2]);
-                contador = contador + String(pki[2]).length;
-            }
-            else if (arrCifrarFrase[contador] == "o"){
-                fraseResultado.push(pke[3]);
-                contador = contador + String(pki[3]).length;
-            }
-            else if (arrCifrarFrase[contador] == "u"){
-                fraseResultado.push(pke[4]);
-                contador = contador + String(pki[4]).length;
-            }
-            else {
-                fraseResultado.push(String(frase[contador]));
-                contador = contador + 1;
-            }
-        }
-        return(fraseResultado.join(''));
+    let indice = 0;
+    validarEntradaTexto();
+    validarEstadoBotones();
+    while (contador < frase.length) {
+        indice = pk.indexOf(arrCifrarFrase[contador]);
+        if (pk.includes(arrCifrarFrase[contador])) {
+            fraseResultado.push(pke[indice]);
+            contador = contador + String(pki[indice]).length;
+          } else {
+            fraseResultado.push(String(frase[contador]));
+            contador += 1;
+          }
+    }
+    document.querySelector('.inCopy').value = fraseResultado.join('');
 }
 
 // Función para enviar contenido a los elementos HTML
@@ -62,14 +50,25 @@ function copy() {
     let copyText = document.querySelector(".inCopy");
     copyText.select();
     document.execCommand("copy");
-    if(document.getElementById('decifrar').disabled == true){
-       document.getElementById('decifrar').removeAttribute('disabled');
-       document.getElementById('cifrar').setAttribute('disabled','true');
-    }else{
-       document.getElementById('cifrar').removeAttribute('disabled');
-       document.getElementById('decifrar').setAttribute('disabled','true'); 
-    }
 }
+
+// Función para activar y desactivar los botones Cifrar, Descifrar y Copiar
+function validarEstadoBotones() {
+    const elementoCifrar = document.getElementById('cifrar');
+    const elementoDecifrar = document.getElementById('decifrar');
+    const elementoCopiar = document.getElementById('btn-copy');
+    const valor = document.querySelector('.inCifrar').value.trim();
+    if (valor && elementoCopiar.disabled) {
+        elementoCopiar.disabled=false;
+        elementoCifrar.disabled=true;  
+        elementoDecifrar.disabled=false; 
+    }else if (valor && elementoDecifrar.disabled == false){
+        elementoCifrar.disabled=false;
+        elementoDecifrar.disabled=true;
+        elementoCopiar.disabled=true;
+    }   
+}
+
 
     
 

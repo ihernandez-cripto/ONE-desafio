@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 /* Estilos generales */
 body {
     background: linear-gradient(#5599eb 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
@@ -13,13 +12,37 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .container {
     display: flex;
     max-width: 800px;
     width: 100%;
 }
+.container-logo {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
 
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    left: 30px;
+    top: 10px;     
+}
+.logo {
+    /* Logo */
+    
+    width: 120px;
+    height: 48px;
+    margin-top: 1rem;
+   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0; 
+ }
 .left-block, .right-block {
     background-color: #fff;
     padding: 20px;
@@ -27,24 +50,23 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-.left-block {
+.left-block, .right-block {
     flex: 1; /* Ocupa el 50% del contenedor */
     margin-right: 10px;
 }
-
-.texto {
-    width: 200px;
-    height: 30px;
+.inCifrar {
+    width: 400px;
+    height: 140px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 26px;
     line-height: 150%;
+    resize: none;
     /* or 48px */
+    color: #000009;
 }
-
-.texto {
+.inCopy {
     width: 400px;
     height: 140px;
     font-family: 'Inter';
@@ -53,35 +75,50 @@ body {
     font-size: 26px;
     line-height: 150%;
     /* or 48px */
+    resize: none;
     color: #000009;
 }
+.p2 {
+    /* Ningún mensaje fue encontrado */
+    width: 336px;
+    height: 18px;
 
-.container__botones {
-    display: flex;
-    gap: 2em;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 120%;
+    /* or 29px */
+    /* Gray/gray-500 */
+    color: #011414;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
 }
+.solicitar {
+    /* Ingrese el texto aqui */
 
-.container__boton {
-    border-radius: 16px;
-    background: #1875E8;
-    padding: 16px 24px;
-    width: 30%;
-    font-size: 18px;
-    font-weight: 700;
-    border: none;
-    margin-top: 1rem;
+    position: absolute;
+    width: 577px;
+    height: 48px;
+    left: 470px;
+    top: 275px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    /* identical to box height, or 48px */
+
+    /* Dark blue/dark-blue-300 */
+    color: #9ba3ad;
 }
-
-.container__boton:disabled {
-    background: #898989;
-}
-
-.right-block {
-    flex: 1; /* Ocupa el 50% del contenedor */
-    margin-left: 10px;
-}
-
-p1 {
+.validar-letra {
     /* Solo letras minúsculas y sin acentos */
 
     width: 205px;
@@ -99,59 +136,19 @@ p1 {
     order: 1;
     flex-grow: 0;
 }
-
-.container-logo {
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
-
-    position: absolute;
-    width: 120px;
-    height: 48px;
-    left: 30px;
-    top: 10px;     
-}
-
-.logo {
-    /* Logo */
-    
-    width: 120px;
-    height: 48px;
+.container_boton {
+    border-radius: 16px;
+    background: #1875E8;
+    padding: 16px 24px;
+    width: 30%;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
     margin-top: 1rem;
-   
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0; 
- }
-
-p2{
-    /* Ningún mensaje fue encontrado */
-    width: 336px;
-    height: 58px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 120%;
-    /* or 29px */
-    text-align: center;
-
-    /* Gray/gray-500 */
-    color: #011414;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
 }
-
+.container_boton:disabled {
+    background: #898989;
+}
 footer{
     margin-top: 400px;
     margin-bottom:30px;
